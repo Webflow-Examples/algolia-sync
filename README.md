@@ -66,9 +66,9 @@ Here's a step-by-step breakdown of what the script does:
 
 By running this script, you can quickly sync your Webflow content to an Algolia search index, allowing you to leverage Algolia's search capabilities for your Webflow content. Algolia is a powerful search tool for large data sets and can be used for faceting large data sets as well.
 
-![screenshot of the console log fetching categories and displaying the transformed data](https://media.cleanshot.cloud/media/45969/93MwTKbxnH00kd8FhRsozAwRkvBjqFUeE3hVhL8e.jpeg?Expires=1690275154&Signature=lKYT37yn~mWNYDGqZaOoQGScm~KPe9ywn-c05yyi7J7cRNIcU9vgyjIszasmu7xlgwoE-el~ORPK9ZcgykXSXUT4F5O7SGPjgTcnVKwAhpqZ2yWosHV~fFWFpmiUPNN7wKpf9we4cLAx-V3L2~UFkxC6oRPxzev3Fsy7jrfbT4rfwL5D3DbTTbPxxXPIGYmVBnMup5DOW3eEB2eR3TPAXii6uA2KySMMVGhG5U86e2wqx3MdntTCD5r1DNGkE5HvV3yl0zblwFJZ5IveAsQT2UWj-54oO51nCDIQtVDdSZdrieYHcO6sgus96ZYIT04tMDdRHyp~c9g5vQWUroE35Q__&Key-Pair-Id=K269JMAT9ZF4GZ)
+![screenshot of the console log fetching categories and displaying the transformed data](https://uploads-ssl.webflow.com/610822230fd859334825569c/64bfd36d73964b051ac37995_node-first.png)
 
-![screenshot ot the console log when saving the items to Algolia](https://media.cleanshot.cloud/media/45969/Xy7XnnLbospiXypOATaOwClunHjwz6ZyRL5ccT1n.jpeg?Expires=1690275160&Signature=LXgky6LeBlRKkAUloyQMzXSikUWB~aSjsPutQ4FlGpfgoO-xIj-9Kz0wVqdfJg68M26iLibPl1bokAy0Ohh4AsWdCcQ~wkA7-4JHhlMUM3WrJXR5MUZOAu0W3HZ~N5Ba2w7F7xbrXhzuUEgBEkMWK0NNec7YiW~IZCXADKyf4BQTB4zR6Md6fvtdAu7Lq1GMJ3mWmM2bi0jOlQOBWbE1ITadrRlI51kKNDNCtDu3xOkvFeFjANkgdMFfkwU-SA1cGwl-AGzlgoAavfYJmMD5YByo-ak4VvC6oC8J4pi1PCcSsdTfzLge9W~A4tdrrl7fj9h9YPpKgLHFRMsjfLX8FQ__&Key-Pair-Id=K269JMAT9ZF4GZ)
+![screenshot ot the console log when saving the items to Algolia](https://uploads-ssl.webflow.com/610822230fd859334825569c/64bfd36d0d62ee85f94978a7_node-second.png)
 
 ### Usage
 
@@ -120,7 +120,7 @@ The application has several components:
 
 3. **Webhook Endpoint**: The application includes a webhook endpoint (`/webhook-endpoint`) that listens for POST requests. This endpoint should be set in Webflow's webhook settings ([Events documentation](https://developers.webflow.com/reference/create-webhook) | you can add three different webhooks with the same URL – item deleted, item created, item changed). When Webflow sends an event to the endpoint, the application checks the type of event. If an item is deleted, the corresponding object is removed from Algolia. If an item is created or updated, the application fetches the current categories from the cache (or Webflow, if they are not in cache), formats the data appropriately, and updates the item in Algolia. If the event is related to another collection, the application does nothing.
 
-![screenshot of the console logs showing events being received, categories fetched, and the items being saved to Algolia](https://media.cleanshot.cloud/media/45969/0XnOkLnm1FxF0L9qkO9z0gOG8qwZB7yJxJAo7MTi.jpeg?Expires=1690275118&Signature=H1HKsxl8mDDnHpwkC8h6qAPDpYTcVgZuSlakRx76ddyakIh1AwoEQgUUeFIGzzIDvqxy3dLFXClRP9FLgt45J7A2RBWiQzg4fJHuSb6pSA8wNsEE-UN8vmy846TBDEt-I4PJtKZ31BVmONLN7iHpPoOvFceWkE4NXjaEquDiE3QJ7jVeRkVWIqRPLiMXTTRGkxdVaTqUwlsIE3bFUErbl~x-SGTxwC3-n8W6MLAosZuSCqir~b-YSsi9GDzTLsY2aMp6l3oO-vaY1XNaJk6ncbljvxuNO2ZjdgBD6Ub~Ma2zrlnwNdQp7J8c9tH0rCAvCkGShRpvFZSy-p4W1nZxpA__&Key-Pair-Id=K269JMAT9ZF4GZ)
+![screenshot of the console logs showing events being received, categories fetched, and the items being saved to Algolia](https://uploads-ssl.webflow.com/610822230fd859334825569c/64bfd36d91f803512b6153f2_webhook.png)
 
 ### Usage
 
