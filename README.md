@@ -66,6 +66,10 @@ Here's a step-by-step breakdown of what the script does:
 
 By running this script, you can quickly sync your Webflow content to an Algolia search index, allowing you to leverage Algolia's search capabilities for your Webflow content. Algolia is a powerful search tool for large data sets and can be used for faceting large data sets as well.
 
+![screenshot of the console log fetching categories and displaying the transformed data](https://share.cleanshot.com/0jdNSwbG)
+
+![screenshot ot the console log when saving the items to Algolia](https://share.cleanshot.com/XSCyPj23)
+
 ### Usage
 
 To use this script, you will need to have Node.js installed on your machine. Follow these steps:
@@ -115,6 +119,8 @@ The application has several components:
 2. **Category Fetching**: The `fetchCategories` function retrieves category data from Webflow. It first checks the cache for any stored categories and uses these if available. If no cached categories are found, the function makes API calls to Webflow to fetch the categories. These categories are then transformed into a map and stored in the cache for future use.
 
 3. **Webhook Endpoint**: The application includes a webhook endpoint (`/webhook-endpoint`) that listens for POST requests. This endpoint should be set in Webflow's webhook settings ([Events documentation](https://developers.webflow.com/reference/create-webhook) | you can add three different webhooks with the same URL – item deleted, item created, item changed). When Webflow sends an event to the endpoint, the application checks the type of event. If an item is deleted, the corresponding object is removed from Algolia. If an item is created or updated, the application fetches the current categories from the cache (or Webflow, if they are not in cache), formats the data appropriately, and updates the item in Algolia. If the event is related to another collection, the application does nothing.
+
+![screenshot of the console logs showing events being received, categories fetched, and the items being saved to Algolia](https://share.cleanshot.com/gGd4V2VS)
 
 ### Usage
 
